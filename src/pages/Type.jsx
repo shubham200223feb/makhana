@@ -60,7 +60,7 @@ const Type = () => {
 
   return (
     // Main Container jo Pin hoga
-    <div ref={containerRef} className='w-full h-screen overflow-hidden bg-white flex items-center justify-center relative'>
+    <div ref={containerRef} className='w-full h-screen overflow-hidden  bg-white flex items-center justify-center relative'>
       
       {/* IMAGE DIV - Left side set kar diya */}
       <div ref={imagedivref} className='h-[30vw] w-[22vw] rounded-3xl overflow-hidden absolute left-[10vw] shadow-2xl'>
