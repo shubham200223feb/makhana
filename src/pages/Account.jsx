@@ -37,6 +37,7 @@ if(state==="login"){
 
     if(!data.sucess){
         setlodeing(false)
+        console.log (data);
         console.log("shubham error aa gya");
          toast.error(data.message);
         return console.log(data.message,data.error);
