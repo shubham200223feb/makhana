@@ -25,7 +25,7 @@ const Account = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
 if(state==="login"){
-    setlodeing(true);
+    try{setlodeing(true);
     const responses= await axios.post("https://makhanabackend.onrender.com/api/user/login", formData);
     setFormData({
         name: '',
@@ -48,7 +48,11 @@ if(state==="login"){
         setlodeing(false);
         localStorage.setItem("userlogin",JSON.stringify(data));
     
-        navigater("/product")
+        navigater("/product")}
+        catch(err){
+            console.log(err);
+            return console.log(err)
+        }
     
 }else{
    setlodeing(true);
