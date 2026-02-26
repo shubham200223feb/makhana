@@ -31,9 +31,9 @@ setcount((c)=>{
       </div>
 
       <div className="h-[5vh] w-full bg-amber-500 flex justify-around items-center rounded-b-2xl">
-        <button className="cursor-pointer rounded-full bg-white px-3 py-1  transition duration-300 hover:scale-110" onClick={Add}><MdAdd /></button>
+        <button className="cursor-pointer rounded-full bg-white  transition duration-300 hover:scale-110" onClick={Add}><MdAdd /></button>
         <p className="text-3xl text-white">{props.prices}</p>
-        <button className=" cursor-pointer  rounded-full bg-white px-3 py-1 transition duration-300 hover:scale-110" onClick={Sub}><GrFormSubtract /></button>
+        <button className=" cursor-pointer  rounded-full bg-white  transition duration-300 hover:scale-110" onClick={Sub}><GrFormSubtract /></button>
        {count>0?<p>{count}</p>:''}
       </div>
 
