@@ -53,8 +53,14 @@ if(state==="login"){
         navigater("/product")}
         catch(err){
             console.log(err);
-
-            setState("signup")
+            setlodeing(false);
+       
+            setState("signup");
+                 setFormData({
+        name: '',
+        email: '',
+        password: ''
+    })
         }
     
 }else{
