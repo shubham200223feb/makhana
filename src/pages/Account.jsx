@@ -33,7 +33,7 @@ if(state==="login"){
         password: ''
     })
     const data= responses.data;
-    
+  console.log(responses)
 
     if(!data.sucess){
         setlodeing(false)
