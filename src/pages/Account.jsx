@@ -51,7 +51,8 @@ if(state==="login"){
         navigater("/product")}
         catch(err){
             console.log(err);
-            return console.log(err)
+
+            setState("signup")
         }
     
 }else{
