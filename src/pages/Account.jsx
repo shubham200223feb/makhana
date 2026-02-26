@@ -1,10 +1,15 @@
 
 import { useGSAP } from '@gsap/react'
+import axios from 'axios';
 import gsap from 'gsap'
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Account = () => {
-  const [state, setState] = React.useState("login")
+    const navigater=useNavigate()
+  const [state, setState] = React.useState("login");
+  const[lodeing,setlodeing]= React.useState(false);
 
     const [formData, setFormData] = React.useState({
         name: '',
@@ -17,8 +22,59 @@ const Account = () => {
         setFormData(prev => ({ ...prev, [name]: value }))
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+if(state==="login"){
+    setlodeing(true);
+    const responses= await axios.post("/api/user/login", formData);
+    setFormData({
+        name: '',
+        email: '',
+        password: ''
+    })
+    const data= responses.data;
+    
+
+    if(!data.sucess){
+        setlodeing(false)
+        console.log("shubham error aa gya");
+         toast.error(data.message);
+        return console.log(data.message,data.error);
+
+    }
+     toast.success(data.message);
+      
+        setlodeing(false);
+        localStorage.setItem("userlogin",JSON.stringify(data));
+    
+        navigater("/product")
+    
+}else{
+   setlodeing(true);
+    const responses= await axios.post("/api/user/signup", formData);
+    setFormData({
+        name: '',
+        email: '',
+        password: ''
+    })
+    const data= responses.data;
+    
+
+    if(!data.sucess){
+
+        console.log("shubham error aa gya");
+         toast.error(data.message);
+        return console.log(data.message,data.error);
+
+    }
+     toast.success(data.message);
+      
+        setlodeing(false);
+        localStorage.setItem("userlogin",JSON.stringify(data));
+    
+        navigater("/product")
+
+}
 
     }
 
@@ -82,11 +138,11 @@ const Account = () => {
                 </div>
 <button 
   type="submit"
-  className="mt-2 w-full h-11 rounded-full  text-white   bg-gradient-to-r from-amber-700 to-yellow-600  hover:from-amber-600 hover:to-yellow-500 transition">  {state === "login" ? "Login" : "Sign up"}</button>
+  className="mt-2 w-full h-11 rounded-full  text-white   bg-gradient-to-r from-amber-700 to-yellow-600  hover:from-amber-600 hover:to-yellow-500 transition"> {lodeing ?"plss wait....": (state === "login" ? "Login" : "Sign up")}</button>
                
 
                 <p onClick={() => setState(prev => prev === "login" ? "register" : "login")} className="text-gray-400 text-sm mt-3 mb-11 cursor-pointer" >
-                    {state === "login" ? "Don't have an account?" : "Already have an account?"}
+                    {(state === "login" ? "Don't have an account?" : "Already have an account?")}
                     <span className="text-indigo-400 hover:underline ml-1">click here</span>
                 </p>
             </form>
