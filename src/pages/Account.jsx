@@ -5,8 +5,10 @@ import gsap from 'gsap'
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Navbar from '../components/Navbar';
 
 const Account = () => {
+    
     const navigater=useNavigate()
   const [state, setState] = React.useState("login");
   const[lodeing,setlodeing]= React.useState(false);
@@ -100,6 +102,7 @@ if(state==="login"){
 
   return (
     <div className=' h-screen w-screen bg-amber-50'>
+        <Navbar/>
       <div className="h-full w-full absolute overflow-hidden">
 
       {/* FALLING MAKHANA IMAGES */}
@@ -137,11 +140,7 @@ if(state==="login"){
                     <input type="password" name="password" placeholder="Password" className="w-full bg-transparent text-gray-500 placeholder-white/60 border-none outline-none" value={formData.password} onChange={handleChange} required />
                 </div>
 
-                <div className="mt-4 text-left">
-                    <button className="text-sm text-indigo-400 hover:underline">
-                        Forget password?
-                    </button>
-                </div>
+                
 <button 
   type="submit"
   className="mt-2 w-full h-11 rounded-full  text-white   bg-gradient-to-r from-amber-700 to-yellow-600  hover:from-amber-600 hover:to-yellow-500 transition"> {lodeing ?"plss wait....": (state === "login" ? "Login" : "Sign up")}</button>
