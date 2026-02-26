@@ -30,7 +30,7 @@ useEffect(() => {
   return (
   <div >
     <Navbar className="mb-96"/>
-    <div className=' absolute top-15 flex justify-self-auto gap-8 flex-wrap'>
+    <div className=' absolute top-15 flex justify-around gap-8 flex-wrap'>
     {imagesurl.map((item,index)=>{
       return(
       <Items image={item} prices={prices[index]} des={datadiv[index]}/>
