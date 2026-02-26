@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import { MdAdd } from "react-icons/md";
+import { GrFormSubtract } from "react-icons/gr";
 const Items = (props) => {
     const[count ,setcount]=useState(0);
     const Add=()=>{
@@ -30,9 +31,9 @@ setcount((c)=>{
       </div>
 
       <div className="h-[5vh] w-full bg-amber-500 flex justify-around items-center rounded-b-2xl">
-        <button className="cursor-pointer rounded-full bg-white px-3 py-1  transition duration-300 hover:scale-110" onClick={Add}>A</button>
+        <button className="cursor-pointer rounded-full bg-white px-3 py-1  transition duration-300 hover:scale-110" onClick={Add}><MdAdd /></button>
         <p className="text-3xl text-white">{props.prices}</p>
-        <button className=" cursor-pointer  rounded-full bg-white px-3 py-1 transition duration-300 hover:scale-110" onClick={Sub}>S</button>
+        <button className=" cursor-pointer  rounded-full bg-white px-3 py-1 transition duration-300 hover:scale-110" onClick={Sub}><GrFormSubtract /></button>
        {count>0?<p>{count}</p>:''}
       </div>
 
