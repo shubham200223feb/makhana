@@ -11,7 +11,7 @@ const Items = (props) => {
        
         console.log(count);
 
-       try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/add",{productname:props.des})
+       try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/add",{productname:props.des},{withCredentials:true})
        console.log("sharma")
        const data = responses.data;
         console.log("shubham");
@@ -44,7 +44,7 @@ const Items = (props) => {
 
 else{
   setlodeing(true);
-  try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/sub",{productname:props.des})
+  try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/sub",{productname:props.des},{withCredentials:true})
         const data = responses.data;
         if(data.sucess){
           setlodeing(false);
