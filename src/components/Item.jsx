@@ -29,6 +29,7 @@ const Items = (props) => {
           toast.success("product added")
         }}catch(error){
           setlodeing(false);
+          console.log(data.err)
           toast.error("errro while product add")
           console.log("error while Addeing the product",error);
           return console.log("error while addeing item",error);
