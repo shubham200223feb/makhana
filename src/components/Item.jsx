@@ -1,21 +1,56 @@
 import React, { useState } from 'react'
 import { MdAdd } from "react-icons/md";
 import { GrFormSubtract } from "react-icons/gr";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 const Items = (props) => {
     const[count ,setcount]=useState(0);
-    const Add=()=>{
+    const [lodeing,setlodeing]=useState(false);
+    const Add=async()=>{
+      setlodeing(true);
         setcount((c)=>{
             c=c+1;
             return c;
 
-        })
-    }
-    const Sub=()=>{
+        });
+       try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/add",{name:props.des})
+        const data = responses.data;
+        if(data.sucess){
+          setlodeing(false);
+          toast.success("product added")
+        }}catch(error){
+          setlodeing(false);
+          toast.error("errro while product add")
+          console.log("error while Addeing the product",error);
+          return console.log("error while addeing item",error);
+        }
+
+      }
+    const Sub=async()=>{
+      if(c<1){
+        return;
+      }
+      
 setcount((c)=>{
     if(c>=1){
+    setlodeing(true)
     c=c-1;}
     return c;
+
 })
+try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/sub",{name:props.des})
+        const data = responses.data;
+        if(data.sucess){
+          setlodeing(false);
+          toast.success("product subtract")
+        }}catch(error){
+          setlodeing(false);
+          toast.error("errro while product sub")
+          console.log("error while subtracting the product",error);
+          return console.log("error while subtracting item",error);
+        }
+
+
     }
   return (
     
@@ -31,10 +66,10 @@ setcount((c)=>{
       </div>
 
       <div className="h-[5vh] w-full bg-amber-500 flex justify-around items-center rounded-b-2xl">
-        <button className="cursor-pointer rounded-full bg-white  transition duration-300 hover:scale-110" onClick={Add}><MdAdd /></button>
+     { lodeing?"plss wait"   :  (<><button className="cursor-pointer rounded-full bg-white  transition duration-300 hover:scale-110" onClick={Add}><MdAdd /></button>
         <p className="text-3xl text-white">{props.prices}</p>
         <button className=" cursor-pointer  rounded-full bg-white  transition duration-300 hover:scale-110" onClick={Sub}><GrFormSubtract /></button>
-       {count>0?<p>{count}</p>:''}
+       {count>0?<p>{count}</p>:''}</>)}
       </div>
 
     </div>
