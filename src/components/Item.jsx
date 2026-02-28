@@ -8,11 +8,11 @@ const Items = (props) => {
     const [lodeing,setlodeing]=useState(false);
     const Add=async()=>{
       setlodeing(true);
-        setcount((c)=>{
-            c=c+1;
-            return c;
+        // setcount((c)=>{
+        //     c=c+1;
+        //     return c;
 
-        });
+        // });
         console.log(count);
 
        try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/add",{productname:props.des})
@@ -21,6 +21,11 @@ const Items = (props) => {
         console.log(data);
         if(data.sucess){
           setlodeing(false);
+           setcount((c)=>{
+            c=c+1;
+            return c;
+
+        });
           toast.success("product added")
         }}catch(error){
           setlodeing(false);
