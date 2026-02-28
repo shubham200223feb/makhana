@@ -12,7 +12,8 @@ const Items = (props) => {
         console.log(count);
 
        try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/add",{productname:props.des})
-        const data = responses.data;
+       console.log("sharma")
+       const data = responses.data;
         console.log("shubham");
         console.log(data);
         if(data.sucess==false ){
@@ -28,7 +29,7 @@ const Items = (props) => {
           toast.success("product added")
         }}catch(error){
           setlodeing(false);
-          console.log(data.err)
+      
           toast.error("errro while product add")
           console.log("error while Addeing the product",error);
           return console.log("error while addeing item",error);
@@ -36,21 +37,25 @@ const Items = (props) => {
 
       }
     const Sub=async()=>{
-      if(c<1){
-        return;
-      }
+    if(count<1){
+      return 
+    }
       
-setcount((c)=>{
-    if(c>=1){
-    setlodeing(true)
-    c=c-1;}
-    return c;
 
-})
-try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/sub",{productname:props.des})
+else{
+  setlodeing(true);
+  try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/sub",{productname:props.des})
         const data = responses.data;
         if(data.sucess){
           setlodeing(false);
+                
+          setcount((c)=>{
+              if(c>=1){
+              
+              c=c-1;}
+              return c;
+
+          })
           toast.success("product subtract")
         }}catch(error){
           setlodeing(false);
@@ -60,7 +65,7 @@ try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/c
         }
 
 
-    }
+    }}
   return (
     
     <div className=" flex flex-col h-[43vh] w-[29vw]">

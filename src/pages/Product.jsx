@@ -33,7 +33,7 @@ useEffect(() => {
     <div className=' absolute top-15 flex justify-around gap-8 flex-wrap'>
     {imagesurl.map((item,index)=>{
       return(
-      <Items image={item} prices={prices[index]} des={datadiv[index]}/>
+      <Items key={index} image={item} prices={prices[index]} des={datadiv[index]}/>
   )
     })}</div>
   </div>
