@@ -13,8 +13,12 @@ const Items = (props) => {
             return c;
 
         });
+        console.log(count);
+
        try{ const responses=await axios.post("https://makhanabackend.onrender.com/api/cart/add",{name:props.des})
         const data = responses.data;
+        console.log("shubham");
+        console.log(data);
         if(data.sucess){
           setlodeing(false);
           toast.success("product added")
