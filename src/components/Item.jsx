@@ -10,9 +10,9 @@ const Items = (props) => {
 try{
 const response=await axios.post("https://makhanabackend.onrender.com/api/cart/get",{productname:props.des});
 const data = response.data;
-console.log(quantity);
+console.log(data.quantity);
 setcount((count)=>{
-  count = quantity
+  count = data.quantity;
   return count;
 });
 }catch(error){
