@@ -7,6 +7,7 @@ import Account from './pages/Account'
 import { ToastContainer } from 'react-toastify'
  import "react-toastify/dist/ReactToastify.css"
 import Product from './pages/Product'
+import Buy from "./pages/Buy"
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
     <Route path ="/types" element={<Type/>}></Route>
     <Route path='/account' element={<Account/>}></Route>
     <Route path='/product' element={<Product/>}></Route>
+    <Route path='/buy' element={<Buy/>}></Route>
    </Routes>
     </div>
   )
