@@ -8,7 +8,7 @@ const Items = (props) => {
     const [lodeing,setlodeing]=useState(false);
     useEffect(async()=>{
 try{
-const response=await axios.post("https://makhanabackend.onrender.com/api/cart/add/get",{productname:props.des});
+const response=await axios.post("https://makhanabackend.onrender.com/api/cart/get",{productname:props.des});
 const data = response.data;
 console.log(quantity);
 setcount(data.quantity);
