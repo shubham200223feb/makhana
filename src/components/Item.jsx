@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdAdd } from "react-icons/md";
 import { GrFormSubtract } from "react-icons/gr";
 import axios from 'axios';
@@ -6,6 +6,16 @@ import { toast } from 'react-toastify';
 const Items = (props) => {
     const[count ,setcount]=useState(0);
     const [lodeing,setlodeing]=useState(false);
+    useEffect(async()=>{
+try{
+const response=await axios.post("https://makhanabackend.onrender.com/api/cart/add/get",{productname:props.des});
+const data = response.data;
+console.log(quantity);
+setcount(data.quantity);
+}catch(error){
+console.log(error);
+}
+    },[])
     const Add=async()=>{
       setlodeing(true);
        
