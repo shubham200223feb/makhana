@@ -11,7 +11,10 @@ try{
 const response=await axios.post("https://makhanabackend.onrender.com/api/cart/get",{productname:props.des});
 const data = response.data;
 console.log(quantity);
-setcount(data.quantity);
+setcount((count)=>{
+  count = quantity
+  return count;
+});
 }catch(error){
 console.log(error);
 }
