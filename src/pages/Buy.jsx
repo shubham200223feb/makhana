@@ -22,12 +22,13 @@ const Cart = () => {
         return toast.info(res.data.message);
       }
 
-      const { url, name, price } = res.data;
+      const { url, name, price,itemnumber } = res.data;
 
       const finalList = url.map((u, i) => ({
         url: url[i],
         name: name[i],
         price: price[i],
+        itemnumber:itemnumber[i],
       }));
       console.log(finalList);
 
@@ -97,7 +98,7 @@ const Cart = () => {
                 {/* name + price */}
                 <div className="flex flex-col w-[50%]">
                   <p className="text-lg font-semibold">{item.name}</p>
-                  <p className="text-gray-600">₹ {item.price}</p>
+                  <p className="text-gray-600">₹ {item.price *item.itemnumber}</p>
                 </div>
 
                 {/* Delete button */}
