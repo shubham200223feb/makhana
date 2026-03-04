@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 const Cart = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const[total,settotal]=useState(0);
 
   
   const fetchCart = async () => {
@@ -73,6 +74,8 @@ const Cart = () => {
   };
 
   return (
+    <div>
+      <Navbar className="mb-96"/>
     <div className="w-full min-h-screen p-5 bg-gray-100">
       <h1 className="text-3xl font-bold mb-5">Your Cart</h1>
 
@@ -123,7 +126,7 @@ const Cart = () => {
           </div>
         </>
       )}
-    </div>
+    </div></div>
   );
 };
 
