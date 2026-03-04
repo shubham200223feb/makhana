@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { MdDelete } from "react-icons/md";
+import Navbar from "../components/Navbar";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
