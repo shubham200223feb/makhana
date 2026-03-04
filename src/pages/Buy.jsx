@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { MdDelete } from "react-icons/md";
 import Navbar from "../components/Navbar";
-import { data } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
@@ -18,7 +18,7 @@ setTotal((t)=>{
   })
   return sum;
 })
-  },[])
+  },[items])
   const fetchCart = async () => {
     try {
       const res = await axios.post(
@@ -118,12 +118,16 @@ setTotal((t)=>{
                 </div>
 
                 {/* Delete button */}
-                <button
+                <div className="flex flex-col items-center gap-2.5">
+                  <button
                   className="text-red-600 text-3xl"
                   onClick={() => deleteItem(item.name)}
                 >
                   <MdDelete />
                 </button>
+                <Link className="bg-amber-50 hover:bg-amber-100 text-blue-50 shadow-2xl" to={"/product"}>Update Quantiy</Link>
+                </div>
+                
               </div>
             ))}
           </div>
@@ -132,17 +136,17 @@ setTotal((t)=>{
           <div className="mt-6 w-full flex items-center justify-between ">
             <button
               onClick={buyNow}
-              className="bg-green-600 px-6 py-3 text-white rounded-xl text-xl hover:bg-green-700 transition flex-col justify-between"
+              className=" bg-blue-400 px-6 py-3 text-blue-50 rounded-xl text-xl hover:bg-blue-600 transition flex-col justify-between"
             >
-              <p>total</p>
-              <p>{total}</p>
+              <p>Amount To Pay  </p>
+              <p>₹ {total}</p>
 
             </button>
             <button
               onClick={buyNow}
-              className="bg-green-600 px-6 py-3 text-white rounded-xl text-xl hover:bg-green-700 transition"
+              className="bg-blue-400 px-6 py-3 text-blue-50 rounded-xl text-xl hover:bg-blue-600 transition"
             >
-              BUY NOW
+              Pay Now
             </button>
           </div>
         </>
