@@ -76,7 +76,7 @@ const Cart = () => {
 
   return (
     <div>
-      <Navbar className="mb-96"/>
+     
     <div className="w-full min-h-screen p-5 bg-gray-100">
       <h1 className="text-3xl font-bold mb-5">Your Cart</h1>
 
