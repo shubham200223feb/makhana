@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { MdDelete } from "react-icons/md";
 import Navbar from "../components/Navbar";
+import { data } from "react-router-dom";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
@@ -57,7 +58,7 @@ const Cart = () => {
       );
 
       if (res.data.sucess) {
-        toast.success("Item removed");
+        toast.success(data.email||"Item removed");
         console.log(productname)
         fetchCart(); 
       } else {
