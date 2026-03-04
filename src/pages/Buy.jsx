@@ -58,7 +58,7 @@ const Cart = () => {
       );
 
       if (res.data.sucess) {
-        console.log(data);
+        console.log(res.data);
         toast.success(data.email||"Item removed");
         console.log(productname)
         fetchCart(); 
