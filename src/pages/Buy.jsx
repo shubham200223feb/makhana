@@ -65,7 +65,7 @@ setTotal((t)=>{
         { productname },
         { withCredentials: true }
       );
-
+console.log(res.data)
       if (res.data.sucess) {
         console.log(res.data);
         toast.success(data.email||"Item removed");
