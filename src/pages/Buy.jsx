@@ -137,7 +137,7 @@ const res = await axios.post(
                 >
                   <MdDelete />
                 </button>
-                <Link className="bg-amber-50 hover:bg-amber-100 text-blue-50 shadow-2xl" to={"/product"}>Update Quantiy</Link>
+                <Link className="bg-amber-50 hover:bg-amber-100 text-blue-400 shadow-2xl" to={"/product"}>Update Quantiy</Link>
                 </div>
                 
               </div>
