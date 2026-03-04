@@ -82,20 +82,8 @@ console.log(res.data)
 
   
   
-  const buyNow = async () => {
-    try{
-const res = await axios.post(
-        "https://makhanabackend.onrender.com/payment/makeorder",
-        {},
-        { withCredentials: true }
-      );
-      if(res.data.sucess){
-        console.log(data);
-        toast.success("order is places sucessfully")
-      }
-    }catch(error){
-      toast.error("error while makeing the payment")
-    }
+  const buyNow =  () => {
+   toast.success("Thank you for buy");
   };
 
   return (
