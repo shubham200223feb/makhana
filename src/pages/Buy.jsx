@@ -58,6 +58,7 @@ const Cart = () => {
 
       if (res.data.sucess) {
         toast.success("Item removed");
+        console.log(productname)
         fetchCart(); 
       } else {
         toast.error("Error while deleting");
