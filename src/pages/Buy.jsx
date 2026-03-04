@@ -120,7 +120,15 @@ const Cart = () => {
           </div>
 
           {/* BUY BUTTON */}
-          <div className="mt-6 w-full flex justify-center">
+          <div className="mt-6 w-full flex items-center ">
+            <button
+              onClick={buyNow}
+              className="bg-green-600 px-6 py-3 text-white rounded-xl text-xl hover:bg-green-700 transition flex-col justify-between"
+            >
+              <p>total</p>
+              <p>200</p>
+
+            </button>
             <button
               onClick={buyNow}
               className="bg-green-600 px-6 py-3 text-white rounded-xl text-xl hover:bg-green-700 transition"
