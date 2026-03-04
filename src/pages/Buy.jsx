@@ -8,9 +8,17 @@ import { data } from "react-router-dom";
 const Cart = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const[total,settotal]=useState(0);
+  const[total,setTotal]=useState(0);
 
-  
+  useEffect(()=>{
+setTotal((t)=>{
+  let sum=0;
+  items.forEach((item)=>{
+    sum+=(item.price*item.itemnumber)
+  })
+  return sum;
+})
+  },[])
   const fetchCart = async () => {
     try {
       const res = await axios.post(
@@ -32,6 +40,7 @@ const Cart = () => {
         name: name[i],
         price: price[i],
         itemnumber:itemnumber[i],
+
       }));
       console.log(finalList);
 
@@ -120,13 +129,13 @@ const Cart = () => {
           </div>
 
           {/* BUY BUTTON */}
-          <div className="mt-6 w-full flex items-center ">
+          <div className="mt-6 w-full flex items-center justify-between ">
             <button
               onClick={buyNow}
               className="bg-green-600 px-6 py-3 text-white rounded-xl text-xl hover:bg-green-700 transition flex-col justify-between"
             >
               <p>total</p>
-              <p>200</p>
+              <p>{total}</p>
 
             </button>
             <button
