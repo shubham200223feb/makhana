@@ -29,6 +29,7 @@ const Cart = () => {
         name: name[i],
         price: price[i],
       }));
+      console.log(finalList);
 
       setItems(finalList);
       setLoading(false);
