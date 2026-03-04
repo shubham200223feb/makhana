@@ -90,6 +90,7 @@ const res = await axios.post(
         { withCredentials: true }
       );
       if(res.data.sucess){
+        console.log(data);
         toast.success("order is places sucessfully")
       }
     }catch(error){
