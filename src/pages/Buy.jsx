@@ -82,8 +82,19 @@ setTotal((t)=>{
 
   
   
-  const buyNow = () => {
-    toast.success("Order Placed Successfully!");
+  const buyNow = async () => {
+    try{
+const res = await axios.post(
+        "https://makhanabackend.onrender.com/payment/makeorder",
+        {},
+        { withCredentials: true }
+      );
+      if(res.data.sucess){
+        toast.success("order is places sucessfully")
+      }
+    }catch(error){
+      toast.error("error while makeing the payment")
+    }
   };
 
   return (
