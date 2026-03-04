@@ -28,7 +28,7 @@ const Account = () => {
         e.preventDefault();
 if(state==="login"){
     try{setlodeing(true);
-    const responses= await axios.post("https://makhanabackend-1.onrender.com/api/user/login", formData);
+    const responses= await axios.post("https://makhanabackend.onrender.com/api/user/login", formData);
     setFormData({
         name: '',
         email: '',
@@ -65,7 +65,7 @@ if(state==="login"){
     
 }else{
    setlodeing(true);
-    const responses= await axios.post("https://makhanabackend-1.onrender.com/api/user/signup", formData);
+    const responses= await axios.post("https://makhanabackend.onrender.com/api/user/signup", formData);
     setFormData({
         name: '',
         email: '',
