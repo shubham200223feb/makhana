@@ -22,7 +22,7 @@ setTotal((t)=>{
   const fetchCart = async () => {
     try {
       const res = await axios.post(
-        "https://makhanabackend.onrender.com/api/cart/findproduct",
+        "https://makhanabackend-1.onrender.com/api/cart/findproduct",
         {},
         { withCredentials: true }
       );
@@ -61,7 +61,7 @@ setTotal((t)=>{
   const deleteItem = async (productname) => {
     try {
       const res = await axios.post(
-        "https://makhanabackend.onrender.com/api/cart/delete",
+        "https://makhanabackend-1.onrender.com/api/cart/delete",
         { productname },
         { withCredentials: true }
       );
@@ -85,7 +85,7 @@ setTotal((t)=>{
   const buyNow = async () => {
     try{
 const res = await axios.post(
-        "https://makhanabackend.onrender.com/payment/makeorder",
+        "https://makhanabackend-1.onrender.com/payment/makeorder",
         {},
         { withCredentials: true }
       );
